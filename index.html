@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Fashion Boutiques - Alta Costura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Jost', 'sans-serif'], serif: ['Cormorant Garamond', 'serif'] },
+                    colors: { nude: { 50: '#faf9f8', 100: '#f3f0ec', 300: '#d7cec4', 500: '#a89c92', 900: '#2d2a26' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 25vw; color: rgba(0, 0, 0, 0.02); pointer-events: none; z-index: 0; white-space: nowrap; }
+        .fade-line { position: relative; }
+        .fade-line::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: #2d2a26; transition: width 0.3s ease; }
+        .fade-line:hover::after { width: 100%; }
+        .modal { opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .modal.active { opacity: 1; visibility: visible; }
+        .modal-content { transform: translateY(20px); opacity: 0; transition: all 0.5s ease; }
+        .modal.active .modal-content { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body class="bg-nude-50 text-nude-900 antialiased selection:bg-nude-300 selection:text-nude-900">
+
+    <nav class="fixed w-full z-50 bg-nude-50/90 backdrop-blur-md border-b border-nude-100/50">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+            <div class="text-xs tracking-[0.2em] uppercase font-light hidden md:block">
+                <button onclick="document.getElementById('modal-login').classList.add('active')" class="fade-line pb-1">Client Login</button>
+            </div>
+            
+            <a href="#" class="font-serif text-3xl md:text-4xl tracking-widest text-nude-900 uppercase mx-auto md:mx-0 text-center">
+                Bella Fashion
+            </a>
+            
+            <div class="text-xs tracking-[0.2em] uppercase font-light hidden md:block">
+                <button onclick="document.getElementById('modal-cad').classList.add('active')" class="fade-line pb-1">Boutique Access</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sec 1: Hero Minimalist -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
+        <div class="watermark font-serif italic">Bella</div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 flex flex-col items-center">
+            <div data-aos="fade-up" data-aos-duration="1500">
+                <span class="text-xs tracking-[0.3em] uppercase text-nude-500 mb-8 block">A Nova Coleção</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-10">
+                    A Essência da <br><span class="italic text-nude-500">Alta Costura</span>
+                </h1>
+            </div>
+            
+            <div class="w-full max-w-2xl h-[50vh] relative mb-12" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Fashion Editorial" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000" />
+            </div>
+            
+            <div data-aos="fade-up" data-aos-delay="400">
+                <button onclick="document.getElementById('modal-cad').classList.add('active')" class="text-xs tracking-[0.2em] uppercase border border-nude-900 px-10 py-4 hover:bg-nude-900 hover:text-white transition duration-500">
+                    Descubra o Privilégio
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sec 2: Philosophy / Editorial -->
+    <section class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div class="order-2 md:order-1 relative" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detail" class="w-[80%] ml-auto shadow-xl" />
+                <div class="absolute -bottom-10 -left-10 w-1/2 h-1/2 bg-nude-100 -z-10"></div>
+            </div>
+            <div class="order-1 md:order-2" data-aos="fade-left">
+                <h2 class="font-serif text-4xl md:text-5xl font-light mb-8">Design conceituado, <br><span class="italic text-nude-500">curadoria impecável.</span></h2>
+                <p class="text-nude-500 font-light text-lg mb-8 leading-relaxed max-w-md">
+                    Na Bella Fashion Boutique, não vendemos roupas. Oferecemos peças de arte vestíveis. Cada corte, cada tecido nobre é escolhido com rigor para mulheres que exigem a excelência.
+                </p>
+                <ul class="space-y-6 text-sm tracking-widest uppercase font-light">
+                    <li class="flex items-center gap-4"><div class="w-8 h-px bg-nude-300"></div> Alfaiataria Fina</li>
+                    <li class="flex items-center gap-4"><div class="w-8 h-px bg-nude-300"></div> Sedas e Linhos Nobres</li>
+                    <li class="flex items-center gap-4"><div class="w-8 h-px bg-nude-300"></div> Atendimento Privé e Personalizado</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sec 3: Boutique Grid -->
+    <section class="py-32 bg-nude-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-serif text-3xl tracking-widest text-center uppercase mb-16">Acervo Exclusivo</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative overflow-hidden" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[500px] object-cover group-hover:scale-105 transition duration-1000" />
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <span class="text-white font-serif text-2xl">Bolsas Couture</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden mt-0 md:mt-12" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1550639525-c97d455acf70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[500px] object-cover group-hover:scale-105 transition duration-1000" />
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <span class="text-white font-serif text-2xl">Vestidos de Gala</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0ca37397dea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[500px] object-cover group-hover:scale-105 transition duration-1000" />
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                        <span class="text-white font-serif text-2xl">Alfaiataria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sec 4: Service -->
+    <section class="py-32 bg-white text-center">
+        <div class="max-w-3xl mx-auto px-6" data-aos="zoom-in">
+            <h2 class="font-serif text-4xl mb-6">A Experiência Bella Fashion</h2>
+            <p class="text-nude-500 font-light text-lg mb-12">Agende uma consultoria privada com nossas stylists. Um momento de luxo, champanhe e as melhores peças selecionadas apenas para o seu biotipo e evento.</p>
+            <button onclick="document.getElementById('modal-cad').classList.add('active')" class="text-xs tracking-[0.2em] uppercase border-b border-nude-900 pb-2 hover:text-nude-500 transition">Agendar Atendimento VIP</button>
+        </div>
+    </section>
+
+    <!-- Footer with Seal -->
+    <footer class="bg-nude-900 text-nude-300 py-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+            <div>
+                <div class="font-serif text-3xl tracking-widest uppercase mb-4 text-white">Bella Fashion</div>
+                <p class="text-xs tracking-[0.2em] uppercase font-light mb-2">Contato & Concierge</p>
+                <a href="mailto:contato@bellafashionboutiques.com.br" class="text-sm tracking-widest font-light hover:text-white transition">contato@bellafashionboutiques.com.br</a>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end">
+                <span class="text-xs uppercase tracking-widest font-light mb-4">Garantia de Confiança</span>
+                <a href="https://www.reclameaqui.com.br/empresa/bella-fashion-boutiques/sobre/" target="_blank" class="block hover:opacity-80 transition">
+                    <img src="selo-ra.png" alt="Selo Reclame Aqui" class="h-16 object-contain bg-white/10 rounded p-1" />
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-login" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-white/95 backdrop-blur-sm" onclick="document.getElementById('modal-login').classList.remove('active')"></div>
+        <div class="modal-content bg-transparent w-full max-w-md relative z-10">
+            <button onclick="document.getElementById('modal-login').classList.remove('active')" class="absolute -top-12 right-0 text-nude-500 hover:text-nude-900 text-3xl font-light">&times;</button>
+            <h3 class="font-serif text-4xl text-center mb-2">Login</h3>
+            <p class="text-center text-xs tracking-widest uppercase text-nude-500 mb-12">Acesso Privé</p>
+            <form onsubmit="event.preventDefault(); alert('Acesso VIP concedido.'); document.getElementById('modal-login').classList.remove('active');">
+                <input type="email" placeholder="E-mail" required class="w-full bg-transparent border-b border-nude-300 py-4 mb-6 outline-none focus:border-nude-900 transition text-sm text-center font-light">
+                <input type="password" placeholder="Senha" required class="w-full bg-transparent border-b border-nude-300 py-4 mb-10 outline-none focus:border-nude-900 transition text-sm text-center font-light">
+                <button type="submit" class="w-full border border-nude-900 text-nude-900 text-xs tracking-[0.2em] uppercase py-5 hover:bg-nude-900 hover:text-white transition duration-500">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-cad" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-white/95 backdrop-blur-sm" onclick="document.getElementById('modal-cad').classList.remove('active')"></div>
+        <div class="modal-content bg-transparent w-full max-w-md relative z-10">
+            <button onclick="document.getElementById('modal-cad').classList.remove('active')" class="absolute -top-12 right-0 text-nude-500 hover:text-nude-900 text-3xl font-light">&times;</button>
+            <h3 class="font-serif text-4xl text-center mb-2">Cadastro</h3>
+            <p class="text-center text-xs tracking-widest uppercase text-nude-500 mb-8">Junte-se à Boutique</p>
+            <form onsubmit="event.preventDefault(); alert('Cadastro recebido. Uma consultora entrará em contato.'); document.getElementById('modal-cad').classList.remove('active');">
+                <input type="text" placeholder="Nome Completo" required class="w-full bg-transparent border-b border-nude-300 py-3 mb-4 outline-none focus:border-nude-900 transition text-sm text-center font-light">
+                <input type="email" placeholder="E-mail" required class="w-full bg-transparent border-b border-nude-300 py-3 mb-4 outline-none focus:border-nude-900 transition text-sm text-center font-light">
+                <input type="password" placeholder="Senha" required class="w-full bg-transparent border-b border-nude-300 py-3 mb-10 outline-none focus:border-nude-900 transition text-sm text-center font-light">
+                <button type="submit" class="w-full bg-nude-900 text-white text-xs tracking-[0.2em] uppercase py-5 hover:bg-nude-900/90 transition duration-500">Solicitar Acesso</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50 });</script>
+</body>
+</html>
